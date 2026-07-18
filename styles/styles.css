@@ -416,6 +416,7 @@ aem-sidekick {
   --font-family-condensed: "trade-gothic-next-condensed", "Arial Narrow", arial, sans-serif;
 
   /* header (two-tier: utility strip + main bar) */
+  --header-container-width: min(1460px, calc(100vw - 48px));
   --utility-bar-height: 40px;
   --main-bar-height: 88px;
   --header-height: var(--main-bar-height);

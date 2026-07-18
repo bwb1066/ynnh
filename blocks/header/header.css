@@ -40,7 +40,7 @@ header {
     height: var(--utility-bar-height);
 
     .utility-bar-inner {
-      max-width: var(--grid-container-width);
+      max-width: var(--header-container-width);
       margin: 0 auto;
       height: 100%;
       display: flex;
@@ -132,7 +132,7 @@ header {
     height: var(--main-bar-height);
 
     .main-bar-inner {
-      max-width: var(--grid-container-width);
+      max-width: var(--header-container-width);
       margin: 0 auto;
       height: 100%;
       display: flex;
@@ -148,9 +148,9 @@ header {
     justify-content: center;
     line-height: 1.1;
 
-    /* real site: ~310px-wide lockup (svg viewBox 484x127) */
+    /* real site: 230x60.34 lockup */
     img {
-      width: 240px;
+      width: 230px;
       height: auto;
     }
 
@@ -733,6 +733,10 @@ body:has(header.is-mobile-open) {
 
     .primary-nav {
       display: block;
+
+      /* pack the nav against the MyChart/search cluster; free space
+         collects between the brand and the CTA */
+      margin-left: auto;
     }
 
     .mobile-toggle,
@@ -765,9 +769,6 @@ body:has(header.is-mobile-open) {
       position: relative;
     }
 
-    .brand img {
-      width: 310px;
-    }
 
     .has-mega {
       position: static;
