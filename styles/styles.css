@@ -389,3 +389,70 @@ aem-sidekick {
     opacity: 1;
   }
 }
+
+/* ============================================================
+   YNHH THEME — Yale New Haven Hospital
+   Brand tokens live here; extend this block as the site grows.
+   ============================================================ */
+
+/* stylelint-disable-next-line no-duplicate-selectors */
+:root {
+  /* brand palette */
+  --ynhh-blue: #00a9e0;        /* CTA / primary accent */
+  --ynhh-blue-hover: #52bbe6;  /* CTA / primary accent hover */
+  --ynhh-navy: #003a70;        /* secondary blue */
+  --ynhh-text: #000;           /* body text (black or navy) */
+  --ynhh-gray-100: #f0f0f0;    /* utility bar background */
+
+  /* semantic mappings (Author Kit tokens) */
+  --color-brand: var(--ynhh-navy);
+  --color-accent: var(--ynhh-blue);
+  --color-link: var(--ynhh-navy);
+  --color-cta: var(--ynhh-blue);
+  --color-cta-hover: var(--ynhh-blue-hover);
+
+  /* fonts — Adobe Fonts kit utk2gwq (loaded in head.html) */
+  --font-family: "trade-gothic-next", "Helvetica Neue", helvetica, arial, sans-serif;
+  --font-family-condensed: "trade-gothic-next-condensed", "Arial Narrow", arial, sans-serif;
+
+  /* header (two-tier: utility strip + main bar) */
+  --utility-bar-height: 40px;
+  --main-bar-height: 88px;
+  --header-height: var(--main-bar-height);
+
+  /* YNHH is a light-only site */
+  color-scheme: light;
+}
+
+@media (width >= 900px) {
+  :root {
+    --header-height: calc(var(--utility-bar-height) + var(--main-bar-height));
+  }
+}
+
+/* YNHH CTA buttons (authors: bold link = primary CTA) */
+a.btn-primary,
+a.btn-accent {
+  color: #fff;
+  background-color: var(--color-cta);
+  border-color: var(--color-cta);
+  text-transform: uppercase;
+  font-weight: 700;
+
+  &:hover {
+    background-color: var(--color-cta-hover);
+    border-color: var(--color-cta-hover);
+  }
+}
+
+/* high-contrast mode (side-nav toggle): darker tokens for stronger
+   contrast; extend as contrast styling needs grow */
+body.contrast-mode {
+  --ynhh-blue: #0076a8;
+  --ynhh-blue-hover: #005c85;
+  --color-gray-500: #494949;
+  --color-gray-600: #313131;
+  --color-gray-700: #1b1b1b;
+}
+
+/* ========================== /YNHH THEME ===================== */

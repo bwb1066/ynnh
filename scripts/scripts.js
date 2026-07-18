@@ -15,7 +15,10 @@ const locales = {
 const linkBlocks = [
   { fragment: '/fragments/' },
   { schedule: '/schedules/' },
-  { youtube: 'https://www.youtube' },
+  // videos only — channel/social links (e.g. youtube.com/@handle) stay links
+  { youtube: 'https://www.youtube.com/watch' },
+  { youtube: 'https://youtu.be/' },
+  { 'aem-modal': '/modals/' },
 ];
 
 // Blocks with self-managed styles

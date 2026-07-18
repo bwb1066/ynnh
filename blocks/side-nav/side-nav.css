@@ -1,0 +1,123 @@
+.side-nav {
+  display: none;
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 990;
+  font-family: var(--font-family);
+
+  .side-nav-item {
+    position: relative;
+    margin-bottom: 2px;
+  }
+
+  .side-nav-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 50px;
+    height: 50px;
+    background-color: var(--ynhh-navy);
+    border: none;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #00294f;
+    }
+  }
+
+  .side-nav-icon {
+    width: 17px;
+    height: 17px;
+    object-fit: contain;
+  }
+
+  .side-nav-label {
+    color: #fff;
+    font-size: 8px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .side-nav-flyout {
+    display: none;
+    position: absolute;
+    right: 100%;
+    top: 0;
+    height: 50px;
+    align-items: center;
+    gap: var(--spacing-l);
+    background-color: var(--ynhh-navy);
+    padding: 0 var(--spacing-l);
+    white-space: nowrap;
+  }
+
+  .side-nav-item.is-open .side-nav-flyout {
+    display: flex;
+  }
+
+  .side-nav-contrast:hover .side-nav-flyout,
+  .side-nav-contrast:focus-within .side-nav-flyout {
+    display: flex;
+  }
+
+  /* contrast flyout */
+  .contrast-state {
+    color: #fff;
+    font-size: 14px;
+  }
+
+  .contrast-switch {
+    position: relative;
+    width: 52px;
+    height: 26px;
+    border: 2px solid #fff;
+    border-radius: 13px;
+    background: transparent;
+    padding: 0;
+
+    .contrast-knob {
+      position: absolute;
+      top: 2px;
+      left: 3px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background-color: #fff;
+      transition: left 0.15s ease;
+    }
+
+    &[aria-checked="true"] .contrast-knob {
+      left: 27px;
+    }
+  }
+
+  /* share flyout */
+  .share-link {
+    display: flex;
+    align-items: center;
+    color: #fff;
+
+    .icon {
+      width: 18px;
+      height: 18px;
+      fill: currentcolor;
+    }
+
+    &:hover {
+      color: var(--ynhh-blue-hover);
+    }
+  }
+}
+
+@media (width >= 900px) {
+  .side-nav {
+    display: block;
+  }
+}
