@@ -423,6 +423,10 @@ aem-sidekick {
 
   /* YNHH is a light-only site */
   color-scheme: light;
+
+  /* source uses the TradeGothic Light cut for default text; weight 300
+     falls back to 400 until Light is added to the Adobe Fonts kit */
+  --font-weight-light: 300;
 }
 
 @media (width >= 900px) {
@@ -454,6 +458,11 @@ body.contrast-mode {
   --color-gray-500: #494949;
   --color-gray-600: #313131;
   --color-gray-700: #1b1b1b;
+}
+
+/* stylelint-disable-next-line no-duplicate-selectors */
+body {
+  font-weight: var(--font-weight-light);
 }
 
 /* ========================== /YNHH THEME ===================== */

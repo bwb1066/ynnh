@@ -1,0 +1,110 @@
+.locations-card {
+  min-height: 323px;
+  box-sizing: border-box;
+  background-color: #fff;
+  font-family: var(--font-family);
+  padding-bottom: var(--spacing-xl);
+
+  .lc-inner {
+    max-width: var(--grid-container-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+  }
+
+  .lc-intro {
+    padding-top: var(--spacing-xl);
+  }
+
+  /* source: TradeGothic-Light 32px/38px, #003A70 */
+  .lc-heading {
+    color: var(--ynhh-navy);
+    font-size: 32px;
+    line-height: 38px;
+    font-weight: 300;
+    margin: 0 0 var(--spacing-l);
+  }
+
+  /* source: TradeGothic-Light 16px/24px, #4a4a4a */
+  .lc-text {
+    color: #4a4a4a;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 300;
+    margin: 0;
+    max-width: 460px;
+  }
+
+  .lc-card {
+    position: relative;
+    z-index: 2;
+    background-color: #fff;
+    box-shadow: 0 4px 16px rgb(0 0 0 / 12%);
+    padding: var(--spacing-xl);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl) var(--spacing-xxl);
+    align-content: start;
+  }
+
+  .lc-item {
+    display: flex;
+    gap: var(--spacing-m);
+
+    .lc-bar {
+      width: 6px;
+      flex-shrink: 0;
+    }
+
+    .lc-name {
+      color: #1e1e1e;
+      font-size: 20px;
+      line-height: 24px;
+      font-weight: 300;
+      margin: 0 0 6px;
+    }
+
+    .lc-view {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--ynhh-blue);
+      font-size: 13px;
+      line-height: 16px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      text-decoration: none;
+
+      &::after {
+        content: "";
+        width: 7px;
+        height: 7px;
+        border-right: 2px solid currentcolor;
+        border-top: 2px solid currentcolor;
+        transform: rotate(45deg);
+      }
+
+      &:hover {
+        color: var(--ynhh-blue-hover);
+      }
+    }
+  }
+}
+
+@media (width >= 900px) {
+  .locations-card {
+    .lc-inner {
+      grid-template-columns: 1fr 740px;
+      gap: 64px;
+    }
+
+    /* the card rides up over the carousel above */
+    .lc-card {
+      margin-top: -90px;
+      grid-template-columns: 1fr 1fr;
+      padding: var(--spacing-xxl);
+    }
+  }
+}

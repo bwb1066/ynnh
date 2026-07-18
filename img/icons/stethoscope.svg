@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><svg id="stethoscope" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+    <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 8 V22 C14 30 20 36 27 36 C34 36 40 30 40 22 V8"/>
+        <path d="M10 8 H18 M36 8 H44"/>
+        <path d="M27 36 V42 C27 50 33 56 41 56 C49 56 54 50 54 43 V34"/>
+        <circle cx="54" cy="28" r="6"/>
+    </g>
+</svg>

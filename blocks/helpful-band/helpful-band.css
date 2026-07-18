@@ -1,0 +1,113 @@
+.helpful-band {
+  min-height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  font-family: var(--font-family);
+
+  .helpful-band-inner {
+    width: min(750px, calc(100% - 48px));
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-xl);
+  }
+
+  .helpful-divider {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-m);
+    width: 100%;
+    color: var(--ynhh-blue);
+
+    .helpful-line {
+      flex: 1;
+      height: 1px;
+      background-color: var(--ynhh-blue);
+    }
+
+    .helpful-icon {
+      display: flex;
+
+      .icon,
+      img {
+        width: 22px;
+        height: 22px;
+        fill: currentcolor;
+      }
+    }
+  }
+
+  .helpful-question {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-m);
+
+    /* source: TradeGothic-Light 600, 24px/27px, #363636 */
+    h1,
+    h2,
+    h3,
+    h4 {
+      color: #363636;
+      font-size: 24px;
+      line-height: 27px;
+      font-weight: 600;
+      margin: 0 var(--spacing-m) 0 0;
+    }
+  }
+
+  /* source: TradeGothic-Bold 14px/14px */
+  .helpful-btn {
+    font-family: var(--font-family);
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 16px 28px;
+    border-radius: 6px;
+    cursor: pointer;
+
+    &.helpful-btn-yes {
+      background-color: var(--ynhh-blue);
+      border: 1px solid var(--ynhh-blue);
+      color: #fff;
+
+      &:hover {
+        background-color: var(--ynhh-blue-hover);
+        border-color: var(--ynhh-blue-hover);
+      }
+    }
+
+    &.helpful-btn-no {
+      background-color: #fff;
+      border: 1px solid var(--ynhh-blue);
+      color: var(--ynhh-blue);
+
+      &:hover {
+        background-color: #f2f9fd;
+      }
+    }
+  }
+
+  .helpful-thanks {
+    color: #313131;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0;
+  }
+
+  /* source: TradeGothic-Light 14px/24px, #4a4a4a */
+  .helpful-disclaimer {
+    color: #4a4a4a;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 300;
+    text-align: center;
+    max-width: 740px;
+    margin: 0;
+  }
+}

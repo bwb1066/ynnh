@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><svg id="beaker" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+    <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M26 8 H38 M28 8 V22 L14 48 C12 52 14 56 18 56 H46 C50 56 52 52 50 48 L36 22 V8"/>
+        <path d="M20 40 H44"/>
+    </g>
+</svg>

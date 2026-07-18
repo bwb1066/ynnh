@@ -1,0 +1,131 @@
+.careers-hero {
+  position: relative;
+  min-height: 407px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background-color: var(--ynhh-navy);
+  font-family: var(--font-family);
+  padding: var(--spacing-l) 0;
+
+  .careers-bg {
+    position: absolute;
+    inset: 0;
+
+    picture,
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+
+  .careers-inner {
+    position: relative;
+    z-index: 1;
+    max-width: var(--grid-container-width);
+    margin: 0 auto;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xxl);
+    align-items: center;
+  }
+
+  /* content cells: 555x209 (intro), 303x257 (list) */
+  .careers-intro {
+    max-width: 555px;
+  }
+
+
+  .careers-heading {
+    color: #fff;
+    font-size: 33px;
+    line-height: 40px;
+    font-weight: 300;
+    margin: 0 0 var(--spacing-m);
+  }
+
+  .careers-text {
+    color: #fff;
+    font-size: 18px;
+    line-height: 27px;
+    font-weight: 300;
+    margin: 0 0 var(--spacing-l);
+  }
+
+  .careers-cta {
+    display: inline-block;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    padding: 16px 28px;
+
+    &:hover {
+      background-color: rgb(255 255 255 / 12%);
+    }
+  }
+
+  .careers-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    max-width: 303px;
+    border-top: 2px solid var(--ynhh-blue);
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-l);
+      margin: 0;
+      padding: 18px 8px;
+      border-bottom: 2px solid var(--ynhh-blue);
+    }
+
+    .careers-item-icon {
+      display: flex;
+      color: #fff;
+      flex-shrink: 0;
+
+      .icon,
+      img {
+        width: 36px;
+        height: 36px;
+      }
+    }
+
+    .careers-item-link {
+      color: #fff;
+      font-size: 20px;
+      line-height: 26px;
+      font-weight: 300;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+@media (width >= 900px) {
+  .careers-hero {
+    .careers-inner {
+      grid-template-columns: 555px 303px;
+      justify-content: space-between;
+      gap: var(--spacing-xxl);
+
+      /* source: 140px left / 223px right viewport margins */
+      max-width: none;
+      margin: 0 223px 0 140px;
+    }
+  }
+}

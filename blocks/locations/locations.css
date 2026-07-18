@@ -1,0 +1,315 @@
+.locations {
+  position: relative;
+  min-height: 700px;
+  box-sizing: border-box;
+  background-color: #fff;
+  font-family: var(--font-family);
+  padding: 64px 0 var(--spacing-xl);
+
+  /* navy band behind the intro; the panel overlaps onto the white below */
+
+  /* navy field stops at 520px of the 700px section */
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 520px;
+    background-color: var(--ynhh-navy);
+  }
+
+  .wt-inner {
+    position: relative;
+    z-index: 1;
+    max-width: var(--grid-container-width);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+    align-items: start;
+  }
+
+  /* source: TradeGothic-Light 32px/38px, #fff */
+  .wt-heading {
+    color: #fff;
+    font-size: 32px;
+    line-height: 38px;
+    font-weight: 300;
+    margin: 0 0 var(--spacing-l);
+  }
+
+  /* source: TradeGothic-Light 16px/27px */
+  .wt-text {
+    color: #fff;
+    font-size: 16px;
+    line-height: 27px;
+    font-weight: 300;
+    margin: 0 0 var(--spacing-m);
+
+    a {
+      color: var(--ynhh-blue-hover);
+      text-decoration: underline;
+
+      &:hover {
+        color: #fff;
+      }
+    }
+  }
+
+  .wt-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-l);
+    margin: var(--spacing-l) 0;
+  }
+
+  .wt-subhead {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-m);
+    color: #fff;
+    font-size: 32px;
+    line-height: 38px;
+    font-weight: 300;
+    margin: 0 0 var(--spacing-m);
+
+    .icon {
+      width: 40px;
+      height: 40px;
+      color: #fff;
+      flex-shrink: 0;
+    }
+  }
+
+  .wt-list {
+    margin: 0;
+    padding-left: 20px;
+
+    li {
+      color: #fff;
+      font-size: 16px;
+      line-height: 27px;
+      margin: 0;
+
+      p {
+        margin: 0;
+      }
+    }
+  }
+
+  /* source: TradeGothic-Bold 14px/14px, #fff */
+  .wt-cta {
+    display: inline-block;
+    border: 1px solid #fff;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 14px;
+    line-height: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    padding: 16px 28px;
+    margin-top: var(--spacing-m);
+
+    &:hover {
+      background-color: rgb(255 255 255 / 12%);
+    }
+  }
+
+  /* source: TradeGothic-Light 16px/24px, #1e1e1e */
+  .wt-disclaimer {
+    color: #1e1e1e;
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 300;
+    margin: 72px 0 0;
+    max-width: 900px;
+  }
+
+  /* ---------- panel ---------- */
+  .wt-panel {
+    position: relative;
+    background-color: #fff;
+    box-shadow: 0 8px 24px rgb(0 0 0 / 18%);
+  }
+
+  .wt-selector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-m);
+    background-color: var(--ynhh-navy);
+    color: #fff;
+    font-size: 14px;
+    line-height: 21px;
+    padding: var(--spacing-m) 0;
+  }
+
+  .wt-switch {
+    position: relative;
+    width: 52px;
+    height: 26px;
+    border: none;
+    border-radius: 13px;
+    background-color: var(--ynhh-blue);
+    padding: 0;
+
+    .wt-knob {
+      position: absolute;
+      top: 3px;
+      left: 4px;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background-color: #fff;
+      transition: left 0.15s ease;
+    }
+
+    &[aria-checked="true"] .wt-knob {
+      left: 28px;
+    }
+  }
+
+  .wt-tabs {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    .wt-tab {
+      border: none;
+      background-color: #fff;
+      color: var(--ynhh-navy);
+      font-family: var(--font-family);
+      font-size: 18px;
+      font-weight: 300;
+      padding: var(--spacing-l) 0;
+      border-bottom: 3px solid transparent;
+
+      &.is-active {
+        background-color: #eaf3fb;
+        border-bottom-color: var(--ynhh-navy);
+      }
+    }
+  }
+
+  .wt-tab-bodies {
+    padding-bottom: var(--spacing-l);
+
+    [hidden] {
+      display: none;
+    }
+  }
+
+  .wt-location {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-m);
+    padding: var(--spacing-l);
+    border-bottom: 1px solid var(--color-gray-100);
+
+    .wt-status {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background-color: #7ac143;
+      flex-shrink: 0;
+    }
+
+    .wt-time {
+      color: #363636;
+      font-size: 14px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      min-width: 70px;
+    }
+
+    /* source: TradeGothic-Bold 14px, #1e1e1e */
+    .wt-name {
+      color: #1e1e1e;
+      font-size: 14px;
+      line-height: 18px;
+      font-weight: 700;
+      flex: 1;
+    }
+
+    .wt-view {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--ynhh-blue);
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      text-decoration: none;
+      white-space: nowrap;
+
+      &::after {
+        content: "";
+        width: 7px;
+        height: 7px;
+        border-right: 2px solid currentcolor;
+        border-top: 2px solid currentcolor;
+        transform: rotate(45deg);
+      }
+
+      &:hover {
+        color: var(--ynhh-blue-hover);
+      }
+    }
+  }
+
+  .wt-pager {
+    position: absolute;
+    left: 50%;
+    bottom: -22px;
+    transform: translateX(-50%);
+    display: flex;
+    gap: var(--spacing-m);
+
+    .wt-page-btn {
+      position: relative;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: none;
+      background-color: #fff;
+      box-shadow: 0 2px 8px rgb(0 0 0 / 20%);
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        width: 10px;
+        height: 10px;
+        border-right: 2px solid var(--ynhh-blue);
+        border-bottom: 2px solid var(--ynhh-blue);
+      }
+
+      &[hidden] {
+        display: none;
+      }
+    }
+
+    .wt-page-down::after {
+      top: 15px;
+      transform: translateX(-50%) rotate(45deg);
+    }
+
+    .wt-page-up::after {
+      top: 20px;
+      transform: translateX(-50%) rotate(225deg);
+    }
+  }
+}
+
+@media (width >= 900px) {
+  .locations {
+    /* lhs ~650px / panel ~500px in the 1200px grid (per source) */
+    .wt-inner {
+      grid-template-columns: 1fr 500px;
+      gap: var(--spacing-xxl);
+    }
+  }
+}

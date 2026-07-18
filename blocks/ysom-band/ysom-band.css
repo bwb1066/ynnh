@@ -1,0 +1,50 @@
+.ysom-band {
+  background-color: #00356b;
+  font-family: var(--font-family);
+
+  .ysom-band-inner {
+    max-width: var(--grid-container-width);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-l);
+    padding: var(--spacing-xl) var(--spacing-l);
+  }
+
+  .ysom-band-logo img {
+    width: 288px;
+    height: auto;
+    display: block;
+  }
+
+  /* source: TradeGothic-Light 14px/24px, #fff */
+  .ysom-band-text p {
+    color: #fff;
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 300;
+    max-width: 500px;
+    margin: 0;
+  }
+}
+
+@media (width >= 900px) {
+  .ysom-band {
+    .ysom-band-inner {
+      flex-direction: row;
+      gap: 0;
+      padding: 44px var(--spacing-l);
+    }
+
+    .ysom-band-logo {
+      margin-right: var(--spacing-xl);
+    }
+
+    .ysom-band-text {
+      border-left: 1px solid #fff;
+      padding-left: var(--spacing-xl);
+    }
+  }
+}

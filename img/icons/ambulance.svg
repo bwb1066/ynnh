@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?><svg id="ambulance" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+    <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="6" y="18" width="34" height="26" rx="2"/>
+        <path d="M40 26 H50 L58 34 V44 H40"/>
+        <circle cx="16" cy="48" r="4"/>
+        <circle cx="46" cy="48" r="4"/>
+        <path d="M23 25 V37 M17 31 H29"/>
+    </g>
+</svg>

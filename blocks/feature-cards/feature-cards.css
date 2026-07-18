@@ -1,0 +1,118 @@
+.feature-cards {
+  font-family: var(--font-family);
+
+  .feature-card {
+    display: grid;
+    grid-template-columns: 1fr;
+    min-height: 546px;
+    background-color: #fff;
+  }
+
+  .feature-media {
+    overflow: hidden;
+    min-height: 320px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    &.feature-media-placeholder {
+      background-color: var(--color-gray-100);
+    }
+  }
+
+  .feature-body {
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-xl) var(--spacing-l);
+
+    .feature-body-inner {
+      max-width: 620px;
+    }
+  }
+
+  /* middle-style cards (image right) get the soft gradient body */
+  .media-right .feature-body {
+    background: linear-gradient(180deg, #f4f4f4, #fff);
+  }
+
+  .feature-heading {
+    color: var(--ynhh-navy);
+    font-size: 33px;
+    line-height: 40px;
+    font-weight: 300;
+    margin: 0 0 var(--spacing-l);
+  }
+
+  .feature-subtitle {
+    color: #313131;
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: 700;
+    margin: 0 0 var(--spacing-m);
+  }
+
+  .feature-text {
+    color: #4a4a4a;
+    font-size: 18px;
+    line-height: 30px;
+    font-weight: 300;
+    margin: 0 0 var(--spacing-l);
+
+    a {
+      color: var(--ynhh-blue);
+      font-weight: 700;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .feature-cta {
+    display: inline-block;
+    border: 1px solid var(--ynhh-blue);
+    border-radius: 2px;
+    color: var(--ynhh-blue);
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    text-decoration: none;
+    padding: 16px 28px;
+
+    &:hover {
+      background-color: #f2f9fd;
+    }
+  }
+}
+
+@media (width >= 900px) {
+  .feature-cards {
+    .feature-card {
+      grid-template-columns: 44% 56%;
+    }
+
+    .feature-card.media-right {
+      grid-template-columns: 56% 44%;
+
+      .feature-media {
+        order: 2;
+      }
+
+      .feature-body {
+        order: 1;
+        justify-content: flex-end;
+      }
+    }
+
+    .feature-body {
+      padding: var(--spacing-xxl) 7%;
+    }
+  }
+}

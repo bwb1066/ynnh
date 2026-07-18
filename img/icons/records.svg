@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><svg id="records" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+    <g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 2 H14 L19 7 V22 H6 Z"/>
+        <path d="M14 2 V7 H19"/>
+        <path d="M12.5 11 V17 M9.5 14 H15.5"/>
+    </g>
+</svg>
