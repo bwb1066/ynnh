@@ -46,7 +46,7 @@
   }
 
   .side-nav-flyout {
-    display: none;
+    display: flex;
     position: absolute;
     right: 100%;
     top: 0;
@@ -56,15 +56,26 @@
     background-color: var(--ynhh-navy);
     padding: 0 var(--spacing-l);
     white-space: nowrap;
+    visibility: hidden;
+    opacity: 0;
+    transform: translateX(32px);
+    pointer-events: none;
+    transition:
+      transform 0.25s ease,
+      opacity 0.25s ease,
+      visibility 0s linear 0.25s;
   }
 
-  .side-nav-item.is-open .side-nav-flyout {
-    display: flex;
-  }
-
+  .side-nav-item.is-open .side-nav-flyout,
   .side-nav-contrast:hover .side-nav-flyout,
   .side-nav-contrast:focus-within .side-nav-flyout {
-    display: flex;
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+    transition:
+      transform 0.25s ease,
+      opacity 0.25s ease;
   }
 
   /* contrast flyout */
