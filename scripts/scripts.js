@@ -1,4 +1,4 @@
-import { loadArea, setConfig } from './ak.js';
+import { loadArea, loadStyle, setConfig } from './ak.js';
 
 const hostnames = ['authorkit.dev'];
 
@@ -37,6 +37,8 @@ const decorateArea = ({ area = document }) => {
 };
 
 export async function loadPage() {
+  // fonts load async (render-blocking in head cost ~1.5s mobile LCP)
+  loadStyle('https://use.typekit.net/utk2gwq.css');
   setConfig({ hostnames, locales, linkBlocks, components, decorateArea });
   await loadArea();
 }

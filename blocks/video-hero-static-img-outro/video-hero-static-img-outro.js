@@ -34,6 +34,12 @@ export default function decorate(block) {
   media.className = 'vh-media';
   const poster = mediaCell?.querySelector('picture');
   if (poster) {
+    // the poster is the LCP element — fetch it eagerly
+    const posterImg = poster.querySelector('img');
+    if (posterImg) {
+      posterImg.removeAttribute('loading');
+      posterImg.fetchPriority = 'high';
+    }
     media.append(poster);
   } else {
     // no working outro image authored — hold the video's last frame instead
@@ -47,10 +53,10 @@ export default function decorate(block) {
   let playBtn = null;
   if (videoLink) {
     video = document.createElement('video');
-    video.src = videoLink.href;
     video.muted = true;
     video.playsInline = true;
-    video.preload = 'auto';
+    // defer the (heavy) video fetch so it can't compete with LCP
+    video.preload = 'none';
     video.className = 'vh-video';
     media.append(video);
 
@@ -60,6 +66,9 @@ export default function decorate(block) {
     playBtn.setAttribute('aria-label', 'Play video');
 
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const ensureSrc = () => {
+      if (!video.src) video.src = videoLink.href;
+    };
     const outro = () => {
       media.classList.remove('is-playing');
       playBtn.setAttribute('aria-label', 'Play video');
@@ -67,6 +76,7 @@ export default function decorate(block) {
     video.addEventListener('ended', outro);
     playBtn.addEventListener('click', () => {
       if (video.paused) {
+        ensureSrc();
         media.classList.add('is-playing');
         video.play();
         playBtn.setAttribute('aria-label', 'Pause video');
@@ -76,9 +86,17 @@ export default function decorate(block) {
       }
     });
     if (!reduced) {
-      media.classList.add('is-playing');
-      video.autoplay = true;
-      video.play?.();
+      // start only after the page has finished loading (LCP protected)
+      const start = () => {
+        ensureSrc();
+        media.classList.add('is-playing');
+        video.play().catch(() => outro());
+      };
+      if (document.readyState === 'complete') {
+        setTimeout(start, 250);
+      } else {
+        window.addEventListener('load', () => setTimeout(start, 250), { once: true });
+      }
     }
   }
 
