@@ -63,7 +63,7 @@
     margin: 0 0 var(--spacing-l);
 
     a {
-      color: var(--ynhh-blue);
+      color: var(--ynhh-blue-a11y);
       font-weight: 700;
       text-decoration: none;
 
@@ -75,9 +75,9 @@
 
   .feature-cta {
     display: inline-block;
-    border: 1px solid var(--ynhh-blue);
+    border: 1px solid var(--ynhh-blue-a11y);
     border-radius: 2px;
-    color: var(--ynhh-blue);
+    color: var(--ynhh-blue-a11y);
     font-size: 14px;
     line-height: 16px;
     font-weight: 700;

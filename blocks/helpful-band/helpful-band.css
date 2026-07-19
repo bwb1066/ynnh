@@ -72,8 +72,8 @@
     cursor: pointer;
 
     &.helpful-btn-yes {
-      background-color: var(--ynhh-blue);
-      border: 1px solid var(--ynhh-blue);
+      background-color: var(--ynhh-blue-a11y);
+      border: 1px solid var(--ynhh-blue-a11y);
       color: #fff;
 
       &:hover {
@@ -84,8 +84,8 @@
 
     &.helpful-btn-no {
       background-color: #fff;
-      border: 1px solid var(--ynhh-blue);
-      color: var(--ynhh-blue);
+      border: 1px solid var(--ynhh-blue-a11y);
+      color: var(--ynhh-blue-a11y);
 
       &:hover {
         background-color: #f2f9fd;

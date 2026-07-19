@@ -58,8 +58,13 @@ export default function decorate(block) {
       body.append(tag);
     }
     if (titleEl) {
-      titleEl.className = 'article-title';
-      body.append(titleEl);
+      // h3 keeps the heading order (section h2 -> card h3)
+      const title = document.createElement('h3');
+      title.className = 'article-title';
+      title.append(...titleEl.childNodes);
+      body.append(title);
+      // the image link needs a name even when the image is a placeholder
+      media.setAttribute('aria-label', title.textContent.trim());
     }
     card.append(body);
     list.append(card);

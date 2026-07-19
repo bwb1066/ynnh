@@ -21,10 +21,11 @@ function buildFooterBrand(logoImg) {
   const brand = document.createElement('a');
   brand.className = 'footer-brand';
   brand.href = '/';
-  brand.setAttribute('aria-label', 'Yale New Haven Health home');
 
   const validLogo = logoImg && logoImg.src && !logoImg.src.startsWith('about:');
   if (validLogo) {
+    // image-only link needs a label; wordmark text names itself
+    brand.setAttribute('aria-label', 'Yale New Haven Health home');
     brand.append(logoImg);
   } else {
     brand.insertAdjacentHTML('beforeend', `

@@ -403,6 +403,7 @@ aem-sidekick {
   --ynhh-navy: #003a70;        /* secondary blue */
   --ynhh-text: #000;           /* body text (black or navy) */
   --ynhh-gray-100: #f0f0f0;    /* utility bar background */
+  --ynhh-blue-a11y: #0076a8;   /* WCAG AA cyan for text on white (4.5:1+) */
 
   /* semantic mappings (Author Kit tokens) */
   --color-brand: var(--ynhh-navy);

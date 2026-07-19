@@ -55,7 +55,7 @@ footer {
 
       em {
         font-style: normal;
-        color: var(--ynhh-blue);
+        color: var(--ynhh-blue-a11y);
       }
     }
   }

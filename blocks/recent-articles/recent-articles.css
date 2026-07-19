@@ -30,7 +30,7 @@
     }
 
     .articles-viewall {
-      color: var(--ynhh-blue);
+      color: var(--ynhh-blue-a11y);
       font-size: 16px;
       font-weight: 700;
       text-decoration: none;
@@ -96,7 +96,7 @@
     margin: 0;
 
     a {
-      color: var(--ynhh-blue);
+      color: var(--ynhh-blue-a11y);
       font-size: 20px;
       line-height: 26px;
       font-weight: 700;

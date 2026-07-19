@@ -65,7 +65,7 @@
     display: inline-flex;
     align-items: center;
     gap: 10px;
-    color: var(--ynhh-blue);
+    color: var(--ynhh-blue-a11y);
     font-size: 16px;
     line-height: 20px;
     font-weight: 700;

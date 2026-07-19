@@ -69,7 +69,7 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      color: var(--ynhh-blue);
+      color: var(--ynhh-blue-a11y);
       font-size: 13px;
       line-height: 16px;
       font-weight: 700;

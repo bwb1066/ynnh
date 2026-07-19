@@ -1,0 +1,23 @@
+# Yale New Haven Hospital
+
+Yale New Haven Hospital (YNHH) is part of Yale New Haven Health, Connecticut's
+leading healthcare system, offering comprehensive, family-focused care in more
+than 100 specialties. Nationally recognized for teaching and clinical research
+through its affiliation with Yale School of Medicine.
+
+## Key pages
+
+- [Home](https://www.ynhh.org/): hospital overview, wait times, featured services
+- [Find a Doctor](https://www.ynhh.org/find-a-doctor): physician directory search
+- [Find a Location](https://www.ynhh.org/find-a-location): hospitals, urgent care, and outpatient sites
+- [Services](https://www.ynhh.org/services): all clinical services and specialties
+- [Patients & Visitors](https://www.ynhh.org/patients-visitors): billing, parking, visiting guidelines
+- [Urgent Care](https://www.ynhhs.org/urgent-care): walk-in and 24/7 virtual care
+- [MyChart](https://mychart.ynhhs.org/): patient portal for records, refills, and bills
+- [Careers](https://www.ynhh.org/careers): clinical and non-clinical opportunities
+- [Contact](https://www.ynhh.org/contact): phone numbers and feedback
+
+## Notes
+
+- Emergency and urgent care wait times on the homepage refresh at least every
+  15 minutes and are informational only. Medical emergency? Dial 9-1-1.

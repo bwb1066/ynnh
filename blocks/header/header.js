@@ -89,10 +89,11 @@ function buildBrand(logoImg) {
   const brand = document.createElement('a');
   brand.className = 'brand';
   brand.href = locale.prefix || '/';
-  brand.setAttribute('aria-label', 'Yale New Haven Hospital home');
 
   const validLogo = logoImg && logoImg.src && !logoImg.src.startsWith('about:');
   if (validLogo) {
+    // image-only link needs a label; wordmark text names itself
+    brand.setAttribute('aria-label', 'Yale New Haven Hospital home');
     brand.append(logoImg);
   } else {
     brand.insertAdjacentHTML('beforeend', `
@@ -250,6 +251,8 @@ function buildActions(mychartLink, searchIcon) {
   if (mychartLink) {
     const label = mychartLink.textContent.trim();
     mychartLink.className = 'mychart-link';
+    // label span is hidden on mobile — aria-label keeps the name
+    mychartLink.setAttribute('aria-label', label);
     mychartLink.innerHTML = `<svg class="icon icon-mychart" aria-hidden="true">
         <use href="${codeBase}/img/icons/mychart.svg#mychart"></use>
       </svg><span class="mychart-label">${label}</span>`;
