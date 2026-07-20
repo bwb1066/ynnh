@@ -313,6 +313,39 @@
 
 @media (width < 900px) {
   .locations {
+    min-height: 0;
+    padding-top: 0;
+    overflow-x: hidden;
+
+    /* the fixed 520px navy band is a desktop device */
+    &::before {
+      display: none;
+    }
+
+    /* full-width single column so the navy intro block and the white
+       panel both reach the screen edges; min-width:0 keeps a long,
+       unbreakable location name from blowing out the grid track (which
+       previously shoved the whole panel off the right edge) */
+    .wt-inner {
+      max-width: none;
+      width: 100%;
+      gap: 0;
+    }
+
+    .wt-left,
+    .wt-panel {
+      min-width: 0;
+    }
+
+    /* the intro + fine print form one continuous navy block on mobile */
+    .wt-left {
+      background-color: var(--ynhh-navy);
+    }
+
+    .wt-intro {
+      padding: 40px var(--spacing-l) 0;
+    }
+
     /* mobile shows the full list, no paged chevrons */
     .wt-pager {
       display: none;
@@ -332,6 +365,35 @@
 
     .wt-cols {
       gap: var(--spacing-m);
+    }
+
+    /* fine print sits on the navy block, so light text; was 72px top */
+    .wt-disclaimer {
+      color: rgb(255 255 255 / 75%);
+      margin-top: var(--spacing-l);
+      padding: 0 var(--spacing-l) 40px;
+    }
+
+    /* long names were crushed into a narrow middle column; let the
+       VIEW LOCATION action drop to its own line so the name gets the
+       full row width */
+    .wt-location {
+      flex-wrap: wrap;
+      padding: var(--spacing-m) var(--spacing-l);
+      row-gap: 6px;
+
+      .wt-time {
+        min-width: 0;
+      }
+
+      .wt-name {
+        flex: 1 1 140px;
+      }
+
+      .wt-view {
+        flex-basis: 100%;
+        justify-content: flex-start;
+      }
     }
   }
 }

@@ -100,16 +100,35 @@ function buildContrast(nav, item) {
 
 /**
  * Mobile-only "Help" tile: stays visible on its own (fixed bottom-right)
- * and toggles the rest of the tiles open/closed. Desktop ignores the
- * toggle state and always shows every tile in the rail.
+ * and toggles the rest of the tiles open/closed. Desktop hides it and
+ * always shows every tile in the rail. Synthesized in code (with a
+ * thumbs-up icon) when not authored, since it's a UI affordance, not
+ * content.
  */
-function buildHelp(nav, item) {
+function buildHelp(nav, item = {}) {
+  const { codeBase } = getConfig();
   const wrapper = document.createElement('div');
   wrapper.className = 'side-nav-item side-nav-help';
 
-  const btn = tile(item, 'button');
+  const label = item.label || 'Help';
+  const btn = document.createElement('button');
+  btn.type = 'button';
+  btn.className = 'side-nav-tile';
   btn.setAttribute('aria-expanded', 'false');
-  btn.setAttribute('aria-label', `${item.label} menu`);
+  btn.setAttribute('aria-label', `${label} menu`);
+
+  if (item.icon) {
+    item.icon.className = 'side-nav-icon';
+    btn.append(item.icon);
+  } else {
+    btn.insertAdjacentHTML('beforeend', `<svg class="side-nav-icon" aria-hidden="true">
+      <use href="${codeBase}/img/icons/thumbs-up.svg#thumbs-up"></use></svg>`);
+  }
+  const span = document.createElement('span');
+  span.className = 'side-nav-label';
+  span.textContent = label;
+  btn.append(span);
+
   btn.addEventListener('click', () => {
     const isOpen = nav.classList.toggle('is-mobile-open');
     btn.setAttribute('aria-expanded', String(isOpen));
@@ -187,6 +206,11 @@ export default async function init(el) {
       el.append(wrapper);
     }
   }
+
+  // the Help tile is the mobile toggle for the rail — always present
+  // (appended last so it sits at the bottom of the stack), even when the
+  // DA fragment doesn't author one
+  if (!el.querySelector('.side-nav-help')) el.append(buildHelp(el));
 
   document.addEventListener('click', (e) => {
     if (!e.target.closest('.side-nav')) {
