@@ -54,7 +54,10 @@ export default function decorate(block) {
   if (videoLink) {
     video = document.createElement('video');
     video.muted = true;
+    video.defaultMuted = true;
     video.playsInline = true;
+    video.setAttribute('playsinline', '');
+    video.setAttribute('webkit-playsinline', '');
     // defer the (heavy) video fetch so it can't compete with LCP
     video.preload = 'none';
     video.className = 'vh-video';

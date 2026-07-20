@@ -98,6 +98,27 @@ function buildContrast(nav, item) {
   return wrapper;
 }
 
+/**
+ * Mobile-only "Help" tile: stays visible on its own (fixed bottom-right)
+ * and toggles the rest of the tiles open/closed. Desktop ignores the
+ * toggle state and always shows every tile in the rail.
+ */
+function buildHelp(nav, item) {
+  const wrapper = document.createElement('div');
+  wrapper.className = 'side-nav-item side-nav-help';
+
+  const btn = tile(item, 'button');
+  btn.setAttribute('aria-expanded', 'false');
+  btn.setAttribute('aria-label', `${item.label} menu`);
+  btn.addEventListener('click', () => {
+    const isOpen = nav.classList.toggle('is-mobile-open');
+    btn.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  wrapper.append(btn);
+  return wrapper;
+}
+
 function sharePopup(url) {
   return (e) => {
     e.preventDefault();
@@ -158,6 +179,7 @@ export default async function init(el) {
     const kind = item.label.toLowerCase();
     if (kind === 'contrast') el.append(buildContrast(el, item));
     else if (kind === 'share') el.append(buildShare(el, item));
+    else if (kind === 'help') el.append(buildHelp(el, item));
     else if (item.href) {
       const wrapper = document.createElement('div');
       wrapper.className = 'side-nav-item';
@@ -167,6 +189,10 @@ export default async function init(el) {
   }
 
   document.addEventListener('click', (e) => {
-    if (!e.target.closest('.side-nav')) closeAllFlyouts(el);
+    if (!e.target.closest('.side-nav')) {
+      closeAllFlyouts(el);
+      el.classList.remove('is-mobile-open');
+      el.querySelector('.side-nav-help button')?.setAttribute('aria-expanded', 'false');
+    }
   });
 }

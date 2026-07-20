@@ -124,6 +124,15 @@
   }
 }
 
+@media (width < 900px) {
+  .resources-hero {
+    /* the gray/white split is sized for the two-column desktop layout;
+       the single-column mobile stack gets a plain white background */
+    background: #fff;
+    min-height: 0;
+  }
+}
+
 @media (width >= 900px) {
   .resources-hero {
     .resources-inner {

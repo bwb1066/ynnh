@@ -1,15 +1,24 @@
 .side-nav {
-  display: none;
+  display: flex;
+  flex-direction: column;
   position: fixed;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  right: 12px;
+  bottom: 12px;
   z-index: 990;
   font-family: var(--font-family);
 
   .side-nav-item {
     position: relative;
     margin-bottom: 2px;
+  }
+
+  /* mobile: every tile except Help stays hidden until Help is tapped */
+  .side-nav-item:not(.side-nav-help) {
+    display: none;
+  }
+
+  &.is-mobile-open .side-nav-item:not(.side-nav-help) {
+    display: block;
   }
 
   .side-nav-tile {
@@ -129,6 +138,18 @@
 
 @media (width >= 900px) {
   .side-nav {
-    display: block;
+    right: 0;
+    bottom: auto;
+    top: 50%;
+    transform: translateY(-50%);
+
+    /* Help is mobile-only; desktop always shows the full rail */
+    .side-nav-help {
+      display: none;
+    }
+
+    .side-nav-item:not(.side-nav-help) {
+      display: block;
+    }
   }
 }

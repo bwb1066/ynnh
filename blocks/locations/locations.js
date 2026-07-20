@@ -164,12 +164,18 @@ function buildPanel(tabCells) {
   pager.append(down, up);
 
   const activeBody = () => [...bodies.children].find((b) => !b.hidden);
+  const isPaged = () => window.matchMedia('(width >= 900px)').matches;
 
   const render = () => {
     const body = activeBody();
     if (!body) return;
-    const offset = Number(body.dataset.offset || 0);
     const rows = [...body.children];
+    if (!isPaged()) {
+      // mobile: no chevron paging, show the full list
+      rows.forEach((row) => { row.hidden = false; });
+      return;
+    }
+    const offset = Number(body.dataset.offset || 0);
     rows.forEach((row, i) => {
       row.hidden = i < offset || i >= offset + PAGE;
     });
@@ -213,6 +219,7 @@ function buildPanel(tabCells) {
   });
   panel.append(tabBar, bodies, pager);
   render();
+  window.matchMedia('(width >= 900px)').addEventListener('change', render);
 
   return panel;
 }

@@ -287,6 +287,15 @@ footer {
   }
 }
 
+@media (width < 900px) {
+  footer {
+    /* the scroll-up bar is desktop-only on mobile */
+    .footer-sticky {
+      display: none;
+    }
+  }
+}
+
 @media (width >= 900px) {
   footer {
     .footer-main {

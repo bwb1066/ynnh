@@ -162,6 +162,44 @@
   .video-hero-static-img-outro {
     margin-bottom: 0;
 
+    /* mobile: clean untinted photo, heading/subhead sit in a solid navy
+       block underneath instead of overlaid on top of the media */
+    .vh-media {
+      height: auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      overflow: visible;
+      background-color: transparent;
+
+      picture,
+      img,
+      .vh-video {
+        position: static;
+        grid-column: 1;
+        grid-row: 1;
+        aspect-ratio: 3 / 2;
+        width: 100%;
+        height: auto;
+      }
+
+      &::after {
+        content: none;
+      }
+    }
+
+    .vh-play {
+      display: none;
+    }
+
+    .vh-overlay {
+      position: static;
+      grid-column: 1;
+      grid-row: 2;
+      inset: auto;
+      background-color: var(--ynhh-navy);
+      padding: var(--spacing-xl) var(--spacing-l);
+    }
+
     .vh-heading {
       font-size: 36px;
       line-height: 42px;

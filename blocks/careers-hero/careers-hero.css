@@ -116,6 +116,17 @@
   }
 }
 
+@media (width < 900px) {
+  .careers-hero {
+    /* the 555px/303px column widths are desktop-only; mobile content
+       runs full width so it doesn't strand blank space on the right */
+    .careers-intro,
+    .careers-list {
+      max-width: none;
+    }
+  }
+}
+
 @media (width >= 900px) {
   .careers-hero {
     .careers-inner {

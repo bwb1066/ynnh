@@ -231,11 +231,18 @@
       line-height: 18px;
       font-weight: 700;
       flex: 1;
+
+      /* flex items don't shrink below their content's intrinsic width by
+         default — without this, long names push the row past the
+         viewport instead of wrapping */
+      min-width: 0;
+      overflow-wrap: break-word;
     }
 
     .wt-view {
       display: inline-flex;
       align-items: center;
+      flex-shrink: 0;
       gap: 8px;
       color: var(--ynhh-blue-a11y);
       font-size: 14px;
@@ -300,6 +307,31 @@
     .wt-page-up::after {
       top: 20px;
       transform: translateX(-50%) rotate(225deg);
+    }
+  }
+}
+
+@media (width < 900px) {
+  .locations {
+    /* mobile shows the full list, no paged chevrons */
+    .wt-pager {
+      display: none;
+    }
+
+    /* 32px wraps badly in a ~150px-wide mobile column */
+    .wt-subhead {
+      gap: var(--spacing-s, 8px);
+      font-size: 22px;
+      line-height: 26px;
+
+      .icon {
+        width: 28px;
+        height: 28px;
+      }
+    }
+
+    .wt-cols {
+      gap: var(--spacing-m);
     }
   }
 }

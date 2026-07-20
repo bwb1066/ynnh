@@ -148,9 +148,10 @@ header {
     justify-content: center;
     line-height: 1.1;
 
-    /* real site: 230x60.34 lockup */
+    /* real site: 230x60.34 lockup (desktop); scales down so it never
+       crowds out the mobile hamburger/action icons on narrow viewports */
     img {
-      width: 230px;
+      width: clamp(140px, 42vw, 230px);
       height: auto;
     }
 
@@ -224,6 +225,7 @@ header {
   .nav-actions {
     display: flex;
     align-items: center;
+    flex-shrink: 0;
     gap: var(--spacing-l);
     color: var(--ynhh-navy);
 
@@ -401,6 +403,7 @@ header {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    flex-shrink: 0;
     gap: 6px;
     width: 44px;
     height: 44px;
