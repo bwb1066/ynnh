@@ -81,6 +81,8 @@
   }
 
   .vh-play {
+    /* the video autoplays; no manual play/pause control at any size */
+    display: none;
     position: absolute;
     left: 48px;
     bottom: 90px;
@@ -185,10 +187,6 @@
       &::after {
         content: none;
       }
-    }
-
-    .vh-play {
-      display: none;
     }
 
     .vh-overlay {
