@@ -138,6 +138,43 @@ function buildHelp(nav, item = {}) {
   return wrapper;
 }
 
+/**
+ * "Ask Cove" tile — opens the Brand Concierge modal. Like Help, it's a UI
+ * affordance rather than content, so it's synthesized in code when the DA
+ * fragment doesn't author it; an authored row (label "Ask Cove", "Cove" or
+ * "Concierge") wins and supplies its own icon.
+ */
+function buildConcierge(nav, item = {}) {
+  const { codeBase } = getConfig();
+  const wrapper = document.createElement('div');
+  wrapper.className = 'side-nav-item side-nav-concierge';
+
+  const btn = tile({ ...item, label: item.label || 'Ask Cove' }, 'button');
+  if (!item.icon) {
+    btn.insertAdjacentHTML('afterbegin', `<svg class="side-nav-icon" aria-hidden="true">
+      <use href="${codeBase}/img/icons/concierge.svg#concierge"></use></svg>`);
+  }
+
+  const load = () => import('./concierge.js');
+  // warm the module on intent so the first click opens without a stall
+  btn.addEventListener('pointerenter', () => load().then((m) => m.prefetch()), { once: true });
+  btn.addEventListener('focus', () => load().then((m) => m.prefetch()), { once: true });
+
+  btn.addEventListener('click', async () => {
+    closeAllFlyouts(nav);
+    btn.disabled = true;
+    try {
+      const { default: openConcierge } = await load();
+      await openConcierge();
+    } finally {
+      btn.disabled = false;
+    }
+  });
+
+  wrapper.append(btn);
+  return wrapper;
+}
+
 function sharePopup(url) {
   return (e) => {
     e.preventDefault();
@@ -199,6 +236,7 @@ export default async function init(el) {
     if (kind === 'contrast') el.append(buildContrast(el, item));
     else if (kind === 'share') el.append(buildShare(el, item));
     else if (kind === 'help') el.append(buildHelp(el, item));
+    else if (/^(ask cove|cove|concierge)$/.test(kind)) el.append(buildConcierge(el, item));
     else if (item.href) {
       const wrapper = document.createElement('div');
       wrapper.className = 'side-nav-item';
@@ -206,6 +244,8 @@ export default async function init(el) {
       el.append(wrapper);
     }
   }
+
+  if (!el.querySelector('.side-nav-concierge')) el.append(buildConcierge(el));
 
   // the Help tile is the mobile toggle for the rail — always present
   // (appended last so it sits at the bottom of the stack), even when the

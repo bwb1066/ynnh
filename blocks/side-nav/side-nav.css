@@ -12,8 +12,9 @@
     margin-bottom: 2px;
   }
 
-  /* mobile: every tile except Help stays hidden until Help is tapped */
-  .side-nav-item:not(.side-nav-help) {
+  /* mobile: tiles stay hidden until Help is tapped — except Ask Cove, which
+     rides alongside Help so the concierge is always one tap away */
+  .side-nav-item:not(.side-nav-help, .side-nav-concierge) {
     display: none;
   }
 
@@ -52,6 +53,18 @@
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
+  }
+
+  /* "ASK COVE" is two words at 8px in a 50px tile — let it wrap centred */
+  .side-nav-concierge .side-nav-label {
+    line-height: 1.1;
+    text-align: center;
+    text-wrap: balance;
+  }
+
+  .side-nav-concierge .side-nav-tile[disabled] {
+    opacity: 0.7;
+    cursor: wait;
   }
 
   .side-nav-flyout {

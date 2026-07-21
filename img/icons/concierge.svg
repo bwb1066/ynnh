@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?><svg id="concierge" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+    <g fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M27 14 C27 29 32 34 47 34 C32 34 27 39 27 54 C27 39 22 34 7 34 C22 34 27 29 27 14 Z"/>
+        <path d="M50 7 C50 13.75 52.25 16 59 16 C52.25 16 50 18.25 50 25 C50 18.25 47.75 16 41 16 C47.75 16 50 13.75 50 7 Z"/>
+    </g>
+</svg>
